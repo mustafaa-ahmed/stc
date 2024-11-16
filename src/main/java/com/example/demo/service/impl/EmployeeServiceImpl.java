@@ -41,7 +41,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Optional<Employee> getEmployeeById(UUID id) {
-        return employeeRepository.findById(id).or(() -> { throw new EmployeeNotFoundException("Employee not found with ID: " + id); });
+        return employeeRepository.findById(id).or(() -> {
+            throw new EmployeeNotFoundException("Employee not found with ID: " + id);
+        });
     }
 
     @Override

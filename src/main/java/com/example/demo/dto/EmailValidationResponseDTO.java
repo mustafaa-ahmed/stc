@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class EmailValidationResponseDTO {
     private Data data;
+    private Meta meta;
 
     @Getter
     @Setter
@@ -31,14 +32,13 @@ public class EmailValidationResponseDTO {
         private boolean block;
     }
 
-    private Meta meta;
-
     @Getter
     @Setter
     @AllArgsConstructor
     @NoArgsConstructor
     public static class Meta {
         private Params params;
+
         @Getter
         @Setter
         @AllArgsConstructor

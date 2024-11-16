@@ -24,7 +24,7 @@ public class EmailNotificationServiceImpl implements EmailNotificationService {
 
     @Async
     public void sendEmailNotification(Employee employee) {
-        if(isValidEmail(employee.getEmail())) {
+        if (isValidEmail(employee.getEmail())) {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setTo(employee.getEmail());
             message.setSubject("Employee Creation Successful");
