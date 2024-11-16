@@ -1,0 +1,21 @@
+spring.application.name=${SPRING_APP_NAME:demo}
+
+spring.datasource.url=jdbc:h2:mem:demo
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=123
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.h2.console.enabled=true
+
+spring.jpa.show-sql=${JPA_SHOW_SQL:true}
+spring.jpa.properties.hibernate.format_sql=${HIBERNATE_FORMAT_SQL:true}
+
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=mustafaa.fcih@gmail.com
+spring.mail.password=bavw mmiv swkl lwrr
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+
+logging.pattern.console = ${LOG_PATTERN_CONSOLE:%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) - %msg%n}

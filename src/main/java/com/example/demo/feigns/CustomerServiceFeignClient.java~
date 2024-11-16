@@ -1,0 +1,29 @@
+package gov.saip.complaints.feigns;
+
+import gov.saip.complaints.dto.CustomerSampleInfoDto;
+import gov.saip.complaints.dto.ResponseDto.ApiResponse;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
+import java.util.Set;
+
+@FeignClient(name = "customer-service", url = "${client.feign.customer}")
+public interface CustomerServiceFeignClient {
+    @GetMapping(value = "/internal-calling/customer/customer-code/{customerCode}")
+    ApiResponse<Long> getCustomerIdByCustomerCode(@PathVariable(name="customerCode") String customerCode);
+
+    @GetMapping(value = "/internal-calling/customer/{name}/codes")
+    ApiResponse<List<String>> getCustomersCodes(@PathVariable(name="name") String name);
+
+    @GetMapping(value = "/internal-calling/customer/{identifier}/code")
+    ApiResponse<String> getCustomerCodeByIdentifier(@PathVariable(name="identifier") String identifier);
+
+    @GetMapping(value = "/internal-calling/customer/code")
+    ApiResponse<CustomerSampleInfoDto> getAnyCustomerByCustomerCode(@RequestParam(name="customerCode") String customerCode);
+
+    @GetMapping(value = "/internal-calling/customer/search-in-codes/{name}")
+    ApiResponse<Set<String>> searchInListOfCodesContainName(@PathVariable(name = "name") String name, @RequestParam(name = "codes") Set<String> codes);
+}
